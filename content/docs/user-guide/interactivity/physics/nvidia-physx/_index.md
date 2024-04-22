@@ -10,7 +10,6 @@ O3DE's PhysX system acts upon entities to create realistic physical effects such
 
 **Topics**
 + [PhysX Gems](#physx-gems)
-+ [PhysX version support](#physx-version-support)
 + [PhysX Components](#physx-components)
 + [PhysX Configuration](#physx-configuration)
 + [Physics Materials](#physics-materials)
@@ -30,22 +29,19 @@ O3DE's PhysX system acts upon entities to create realistic physical effects such
 
 The PhysX system uses the following Gems, which you can enable in **Project Manager**.
 
-+ **[PhysX](/docs/user-guide/gems/reference/physics/nvidia/physx/)** - Provides integration for the [NVIDIA PhysX 4 SDK](https://developer.nvidia.com/physx-sdk) into O3DE. The integration provided includes a suite of components, configuration via the **O3DE Editor**, Script Canvas integration, **PhysX Visual Debugger** integration, and a simplified API abstraction layer for games.
++ **[PhysX/PhysX5](/docs/user-guide/gems/reference/physics/nvidia/physx/)** - Provides integration for the [NVIDIA PhysX SDK](https://developer.nvidia.com/physx-sdk) into O3DE. The integration provided includes a suite of components, configuration via the **O3DE Editor**, Script Canvas integration, **PhysX Visual Debugger** integration, and a simplified API abstraction layer for games and simulations. There are two different versions of the PhysX Gem:
+  + **PhysX** - Provides integrations to the legacy [NVIDIA PhysX 4.1 SDK](https://github.com/NVIDIAGameWorks/PhysX) from [NVIDIA Gameworks](https://developer.nvidia.com/gameworks-source-github). This version of PhysX is no longer actively supported by NVIDIA and is provided to support legacy integrations.
+  + **PhysX5** - Provides integrations to the [NVIDIA PhysX 5.1 SDK](https://github.com/NVIDIA-Omniverse/PhysX) from [NVIDIA Omniverse](https://developer.nvidia.com/omniverse). 
 
-  For more information, see [PhysX](/docs/user-guide/gems/reference/physics/nvidia/physx/).
-+ **[PhysX Debug](/docs/user-guide/gems/reference/physics/nvidia/physx-debug/)** - Provides debug visualizations of PhysX scene geometry that you can enable with console commands and other tools.
+For more information, see [PhysX](/docs/user-guide/gems/reference/physics/nvidia/physx/).
 
-  For more information, see [PhysX Debug](/docs/user-guide/gems/reference/physics/nvidia/physx-debug/).
++ **[PhysX/PhysX5 Debug](/docs/user-guide/gems/reference/physics/nvidia/physx-debug/)** - Provides debug visualizations of PhysX scene geometry that you can enable with console commands and other tools. The version of this Gem corresponds to the enabled version of the PhysX Gem.
 
-## PhysX version support
+For more information, see [PhysX Debug](/docs/user-guide/gems/reference/physics/nvidia/physx-debug/).
 
-O3DE uses PhysX 4.1 by default. You can enable PhysX 5.1 by specifying `-DAZ_USE_PHYSX5=ON` as a command-line option in the configuration step when you configure and build your project or the engine. The following is an an example configuration command that enables PhysX 5.1.
++ **[PhysXCommon](/docs/user-guide/gems/reference/physics/nvidia/physx/)** - Provides the common elements such as registry files, assets, and common code that is required by both versions of the PhysX gem.
 
-```cmd
-cmake -B build/windows -S . -G "Visual Studio 16" -DLY_3RDPARTY_PATH=C:\o3de-packages -DAZ_USE_PHYSX5=ON
-```
 
-For more information on configuring and building projects see the [Configure and Build](/docs/user-guide/build/configure-and-build/) topic.
 
 ## PhysX Components 
 

@@ -143,6 +143,10 @@ export PROJECT_PATH=${HOME}/projects/${PROJECT_NAME}
 ${O3DE_HOME}/scripts/o3de.sh create-project --project-path $PROJECT_PATH --template-path ${O3DE_EXTRAS_HOME}/Templates/Ros2ProjectTemplate 
 ```
 
+{{<note>}}
+The robotic project templates enables the PhysX5 Gem by default (as opposed to the PhysX Gem), which is better suited robotic simulation.
+{{</note>}}
+
 For more information, refer to [Project Creation](/docs/welcome-guide/create/)
 
 ### Building
@@ -155,11 +159,13 @@ For convenience, here is an example of parametrized CMake calls:
 
 ```shell
 cd $PROJECT_PATH
-cmake -B build/linux -G "Ninja Multi-Config" -DLY_DISABLE_TEST_MODULES=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DLY_STRIP_DEBUG_SYMBOLS=ON -DAZ_USE_PHYSX5:BOOL=ON 
+cmake -B build/linux -G "Ninja Multi-Config" -DLY_DISABLE_TEST_MODULES=ON -DLY_STRIP_DEBUG_SYMBOLS=ON
 cmake --build build/linux --config profile --target ${PROJECT_NAME} Editor ${PROJECT_NAME}.Assets 
 ```
+{{<note>}}
+The `-DLY_STRIP_DEBUG_SYMBOLS=ON` argument above was added as a convenience to reduce the size of the build, as debug symbols can get very large. If you need to debug into the source for any reason, you can omit this option so that the build commands will generate debug symbols.
+{{</note>}}
 
-These commands build O3DE with PhysX 5 (as opposed to default PhysX 4), which is better suited for robotic simulation.
 For a deeper understanding on how O3DE projects are built, please refer to [Configure and Build](/docs/user-guide/build/configure-and-build).
 
 ### Launching your project in O3DE Editor
